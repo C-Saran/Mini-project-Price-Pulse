@@ -134,6 +134,10 @@
             }
         }
     </style>
+
+    <script src="js/protect.js" defer></script>
+    <script src="js/nav.js" defer></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
@@ -146,6 +150,7 @@
       <div class="wave"></div>
     </div>
 
+    <!-- Navigation Bar with Profile Menu -->
     <nav>
       <input type="checkbox" id="nav-toggle" />
       <div class="logo">
@@ -154,8 +159,33 @@
       <ul class="links">
         <li id="home"><a href="index.html">Home</a></li>
         <li id="about"><a href="about.html">About</a></li>
-        <!--<li id="projects"><a href="product.html">Product</a></li>-->
         <li id="contact"><a href="contact.html">Contact</a></li>
+        
+        <!-- AUTH LINKS START -->
+        <li id="authLink"><a href="auth.html">Login / Register</a></li>
+        
+        <!-- Profile Menu (Initially Hidden) -->
+          <li class="profile-menu" id="profileMenu" style="display: none;">
+      <button class="profile-btn" id="profileBtn">
+        <i class="fas fa-user"></i>
+      </button>
+      <div class="profile-dropdown" id="profileDropdown">
+        
+        <!-- NEW: User Info Header -->
+        <div class="dropdown-header">
+          <p class="dropdown-name" id="dropdownUserName">User Name</p>
+          <p class="dropdown-email" id="dropdownUserEmail">user@example.com</p>
+        </div>
+        
+        <!-- Logout Link -->
+        <a href="#" class="logout-link" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+      </div>
+    </li>
+        <!-- AUTH LINKS END -->
+        
       </ul>
       <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>

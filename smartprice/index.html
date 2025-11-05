@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PricePulse | Smart Shopping Comparison</title>
+
+    <!-- This script protects the page. It MUST be in the <head> -->
+    <script src="js/protect.js" defer></script>
+
+     <!-- NEW: Navigation Logic -->
+    <script src="js/nav.js" defer></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,16 +30,42 @@
       <div class="wave"></div>
     </div>
 
+    <!-- Navigation Bar with Profile Menu -->
     <nav>
       <input type="checkbox" id="nav-toggle" />
       <div class="logo">
         <i class="fas fa-robot"></i><strong>PricePulse</strong>
       </div>
       <ul class="links">
-        <li id="home"><a href="index.html">Home</a></li> <!--in inside anchor tag class="active"-->
+        <li id="home"><a href="index.html">Home</a></li>
         <li id="about"><a href="about.html">About</a></li>
-        <!--<li id="projects"><a href="product.html">Product</a></li>-->
         <li id="contact"><a href="contact.html">Contact</a></li>
+        
+        <!-- AUTH LINKS START -->
+        <li id="authLink"><a href="auth.html">Login / Register</a></li>
+        
+        <!-- Profile Menu (Initially Hidden) -->
+          <li class="profile-menu" id="profileMenu" style="display: none;">
+      <button class="profile-btn" id="profileBtn">
+        <i class="fas fa-user"></i>
+      </button>
+      <div class="profile-dropdown" id="profileDropdown">
+        
+        <!-- NEW: User Info Header -->
+        <div class="dropdown-header">
+          <p class="dropdown-name" id="dropdownUserName">User Name</p>
+          <p class="dropdown-email" id="dropdownUserEmail">user@example.com</p>
+        </div>
+        
+        <!-- Logout Link -->
+        <a href="#" class="logout-link" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+      </div>
+    </li>
+        <!-- AUTH LINKS END -->
+        
       </ul>
       <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
@@ -53,7 +86,7 @@
       </header>
 
       <!-- Search Section -->
-      <section id="home" class="search-section">
+      <section class="search-section">
         <div class="search-box">
           <input
             type="text"
@@ -61,7 +94,7 @@
             placeholder="Search for products..."
           />
           <button id="searchBtn">
-            <i class="fas fa-search"></i> Compare Prices
+            <i class="fas fa-search"></i> <span>Compare Prices</span>
           </button>
         </div>
 
@@ -93,9 +126,6 @@
             <button class="store-btn" data-store="amazon">
               <i class="fab fa-amazon"></i> Amazon
             </button>
-            <!-- <button class="store-btn" data-store="flipkart">
-              <i class="fas fa-shopping-bag"></i> Flipkart
-            </button> -->
             <button class="store-btn" data-store="ebay">
               <i class="fab fa-ebay"></i> eBay
             </button>
@@ -106,6 +136,14 @@
         </div>
       </section>
 
+      <!-- NEW SEARCH HISTORY SECTION -->
+      <section class="history-section" id="historySection" style="display: none;">
+          <h3>Your Recent Searches</h3>
+          <ul id="historyList">
+              <!-- History items will be added here by JavaScript -->
+          </ul>
+      </section>
+
       <!-- Results -->
       <section class="results-section">
         <div class="loading" id="loading">
@@ -114,7 +152,7 @@
         </div>
 
         <div class="results-container" id="resultsContainer">
-          <!-- Dynamic content will appear here -->
+          <!-- The welcome message or product cards will appear here -->
         </div>
       </section>
     </div>
