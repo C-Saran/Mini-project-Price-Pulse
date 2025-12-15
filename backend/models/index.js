@@ -11,28 +11,27 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  // --- THIS IS THE PRODUCTION LOGIC (THE FIX IS HERE) ---
+  // --- PRODUCTION LOGIC FOR RENDER + AIVEN ---
   
-  // 1. Get the DATABASE_URL from the environment variables on Render
   const databaseUrl = process.env[config.use_env_variable];
   
-  // 2. Create a configuration object
   const sequelizeConfig = {
     dialect: 'mysql',
     dialectOptions: {
-      // 3. Add the SSL configuration required by Aiven
       ssl: {
         require: true,
-        rejectUnauthorized: true
+        // THE FINAL FIX IS HERE:
+        // We are telling the client to allow connections from servers
+        // with self-signed certificates, which is what Aiven uses.
+        rejectUnauthorized: false 
       }
     }
   };
 
-  // 4. Initialize Sequelize with the URL and the new config object
   sequelize = new Sequelize(databaseUrl, sequelizeConfig);
 
 } else {
-  // This is the development logic for your local machine, it remains the same
+  // --- DEVELOPMENT LOGIC for your local machine ---
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
