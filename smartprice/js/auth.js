@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Backend API URL ---
     // Make sure your backend server is running on this port
-    const API_URL = 'http://localhost:5000/api/auth';
+    const API_URL = 'https://mini-project-price-pulse.onrender.com/api/auth';
 
     
     // --- Event Listener for the "Sign In" Form ---
