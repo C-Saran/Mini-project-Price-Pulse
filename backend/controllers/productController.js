@@ -203,7 +203,7 @@ const formatProductResponse = ({ products, domain }) => {
 
             name = p.product_title?.replace(/Opens in a new window or tab/g, '').replace('New Listing', '').trim();
             image = p.image;
-            url = p.product_url;
+            url = p.product_url || p.item_url || `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(name)}`;
         }
 
         return {
