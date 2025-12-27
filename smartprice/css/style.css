@@ -498,34 +498,51 @@ body {
     font-size: 2rem;
   }
 
-  /* --- START: THE CORRECT MOBILE SEARCH BAR STYLES --- */
+  /* --- START: THE FINAL, CORRECTED MOBILE STYLES --- */
+
+  /* Make the entire search section a bit bigger */
+  .search-section {
+    padding: 1.5rem;
+  }
+
+  /* 1. The main search box container */
   .search-box {
-    flex-direction: row; /* Keeps input and button on the same line */
-    align-items: center; /* Vertically aligns the icon button */
-    border-radius: 50px; /* Makes the whole container a pill shape */
-    border: 2px solid #e0e0e0; /* Adds the border from your sketch */
-    padding: 3px;
-    overflow: hidden;
+    flex-direction: row !important; /* Use !important to force it to stay horizontal */
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #ddd;
+    padding: 5px; /* Add more padding for a bigger feel */
     background: white;
   }
 
+  /* 2. The text input field */
   #searchInput {
+    background: transparent;
     border-radius: 0;
-    background: transparent; /* Makes the input blend with the container */
+    padding: 0.8rem 1.2rem; /* Increase padding to make it taller */
+    font-size: 16px; /* Larger font, also prevents iOS zoom */
+    border: none; /* Ensure no extra borders are interfering */
   }
 
+  /* 3. The search button */
   #searchBtn {
-    padding: 0; /* Removes extra space from the button */
-    width: 45px; /* Sets a fixed width for the circle */
-    height: 45px; /* Sets a fixed height for the circle */
-    border-radius: 50%; /* Makes the button a perfect circle */
-    background: var(--primary); /* Gives it the solid background color */
-    color: white; /* Makes the icon inside white */
+    padding: 0;
+    width: 50px;   /* Increased size */
+    height: 50px;  /* Increased size */
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
     justify-content: center;
-    flex-shrink: 0; /* Prevents the button from being squashed on small screens */
+    flex-shrink: 0;
+    border: none; /* Ensure no extra borders are interfering */
   }
 
-  /* This rule hides the "Compare Prices" text on mobile */
+  /* Make the icon inside the button bigger */
+  #searchBtn .fa-search {
+    font-size: 1.2rem;
+  }
+
+  /* Hide the "Compare Prices" text */
   #searchBtn span {
     display: none;
   }
@@ -533,9 +550,10 @@ body {
   #searchBtn:hover {
     background: var(--primary-dark);
   }
-  /* --- END: THE CORRECT MOBILE SEARCH BAR STYLES --- */
+  /* --- END: THE FINAL, CORRECTED MOBILE STYLES --- */
 
 
+  /* --- Other Mobile Styles --- */
   .filters {
     flex-direction: column;
     align-items: flex-start;
