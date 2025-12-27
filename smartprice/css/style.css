@@ -488,38 +488,36 @@ body {
   }
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
+/* ===== CONSOLIDATED RESPONSIVE STYLES (THE FINAL FIX) ===== */
+@media screen and (max-width: 768px) {
+  /* --- General Mobile Layout --- */
   .container {
     padding: 1rem;
   }
-
-  .logo {
-    font-size: 2rem;
+  .results-container {
+    grid-template-columns: 1fr;
   }
-
-  /* --- Styles for the mobile search bar --- */
+  
+  /* --- Mobile Search Bar --- */
   .search-box {
-    flex-direction: row !important; /* Forces it to be horizontal */
+    flex-direction: row !important; /* Force horizontal layout */
     align-items: center;
     border-radius: 50px;
     border: 2px solid #ddd;
     padding: 5px;
     background: white;
   }
-
   #searchInput {
     background: transparent;
     border-radius: 0;
     padding: 0.8rem 1.2rem;
-    font-size: 16px;
+    font-size: 16px; /* Bigger font, prevents iOS zoom */
     border: none;
   }
-
   #searchBtn {
     padding: 0;
-    width: 50px;   /* Bigger size */
-    height: 50px;  /* Bigger size */
+    width: 50px; /* Bigger size */
+    height: 50px; /* Bigger size */
     border-radius: 50%;
     background: var(--primary);
     color: white;
@@ -527,32 +525,61 @@ body {
     flex-shrink: 0;
     border: none;
   }
-
   #searchBtn .fa-search {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Bigger icon */
   }
-
-  /* Hides the "Compare Prices" text on mobile */
   #searchBtn span {
-    display: none;
+    display: none; /* Hide text */
   }
   
-  #searchBtn:hover {
-    background: var(--primary-dark);
-  }
-
-  /* --- Other mobile styles --- */
+  /* --- Mobile Filters --- */
   .filters {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .filter-group {
     width: 100%;
   }
 
-  .results-container {
-    grid-template-columns: 1fr;
+  /* --- Mobile Navbar (Hamburger Menu) --- */
+  nav .logo {
+    float: none;
+    width: auto;
+    justify-content: center;
+  }
+  nav .links {
+    float: none;
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, .8);
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+  }
+  nav .links a {
+    font-size: 20px;
+  }
+  nav :checked ~ .links {
+    bottom: 0;
+  }
+  nav .icon-burger {
+    display: block;
+  }
+  nav :checked ~ .icon-burger .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
+  nav :checked ~ .icon-burger .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
+  nav :checked ~ .icon-burger .line:nth-child(2) {
+    opacity: 0;
   }
 }
 
