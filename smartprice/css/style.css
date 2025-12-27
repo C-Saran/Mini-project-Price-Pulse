@@ -498,12 +498,12 @@ body {
     font-size: 2rem;
   }
 
-  /* --- UPDATED: Search Box for Mobile View --- */
+  /* --- START: THE CORRECT MOBILE SEARCH BAR STYLES --- */
   .search-box {
-    flex-direction: row;
-    align-items: center;
-    border-radius: 50px;
-    border: 2px solid #e0e0e0;
+    flex-direction: row; /* Keeps input and button on the same line */
+    align-items: center; /* Vertically aligns the icon button */
+    border-radius: 50px; /* Makes the whole container a pill shape */
+    border: 2px solid #e0e0e0; /* Adds the border from your sketch */
     padding: 3px;
     overflow: hidden;
     background: white;
@@ -511,74 +511,39 @@ body {
 
   #searchInput {
     border-radius: 0;
-    background: transparent;
+    background: transparent; /* Makes the input blend with the container */
   }
 
-  /* --- UPDATED: Search Button with Solid Blue Circle --- */
   #searchBtn {
-    padding: 0;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: var(--primary); /* Solid background color */
-    color: white; /* White icon color */
+    padding: 0; /* Removes extra space from the button */
+    width: 45px; /* Sets a fixed width for the circle */
+    height: 45px; /* Sets a fixed height for the circle */
+    border-radius: 50%; /* Makes the button a perfect circle */
+    background: var(--primary); /* Gives it the solid background color */
+    color: white; /* Makes the icon inside white */
     justify-content: center;
-    flex-shrink: 0; /* Prevents the button from shrinking */
+    flex-shrink: 0; /* Prevents the button from being squashed on small screens */
   }
 
+  /* This rule hides the "Compare Prices" text on mobile */
   #searchBtn span {
-    display: none; /* Hides "Compare Prices" text */
+    display: none;
   }
   
   #searchBtn:hover {
     background: var(--primary-dark);
   }
-  /* ---------------------------------------------------- */
+  /* --- END: THE CORRECT MOBILE SEARCH BAR STYLES --- */
+
 
   .filters {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
   }
   
   .filter-group {
     width: 100%;
   }
-
-  /* --- UPDATED: Store Button Layout for Mobile (Sketch Layout) --- */
-  .filter-group:last-child {
-      display: flex;
-      flex-direction: column; /* Stacks the label above the buttons */
-      align-items: flex-start; /* Aligns "Stores:" text to the left */
-      gap: 10px;
-  }
-  
-  .store-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Horizontally centers the items */
-    gap: 10px;
-    width: 100%; /* Takes full width to allow centering */
-  }
-
-  /* Uses flexbox 'order' to rearrange buttons */
-  .store-btn[data-store="all"] {
-    order: 1; /* First item */
-  }
-
-  /* Creates a full-width, invisible element to act as a line break */
-  .store-options::after {
-    content: '';
-    width: 100%;
-    order: 2; /* This 'line break' comes after the 'All' button */
-  }
-  
-  /* The rest of the buttons come after the line break */
-  .store-btn:not([data-store="all"]) {
-    order: 3;
-    flex-grow: 1; /* Allows Amazon, eBay, etc., to fill the space evenly */
-    justify-content: center;
-  }
-  /* ----------------------------------------------------------------- */
 
   .results-container {
     grid-template-columns: 1fr;
