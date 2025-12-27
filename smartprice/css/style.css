@@ -500,36 +500,50 @@ body {
   
   /* --- Mobile Search Bar --- */
   .search-box {
-    flex-direction: row !important; /* Force horizontal layout */
+    display: flex; /* This must be here */
+    flex-direction: row !important;
     align-items: center;
     border-radius: 50px;
     border: 2px solid #ddd;
     padding: 5px;
     background: white;
+    overflow: hidden; /* This must also be here */
   }
+
   #searchInput {
+    /* THIS IS THE MOST IMPORTANT FIX */
+    flex-grow: 1; /* Tells the input to grow and fill available space */
+    width: 1px;   /* Forces flexbox to calculate size correctly, preventing overflow */
+    
     background: transparent;
     border-radius: 0;
     padding: 0.8rem 1.2rem;
-    font-size: 16px; /* Bigger font, prevents iOS zoom */
+    font-size: 16px;
     border: none;
+    outline: none;
   }
+
   #searchBtn {
     padding: 0;
-    width: 50px; /* Bigger size */
-    height: 50px; /* Bigger size */
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: var(--primary);
     color: white;
     justify-content: center;
-    flex-shrink: 0;
+    /* This tells the button NOT to shrink */
+    flex-shrink: 0; 
     border: none;
+    display: flex; /* Ensure flex properties apply */
+    align-items: center; /* Center the icon vertically */
   }
+
   #searchBtn .fa-search {
-    font-size: 1.2rem; /* Bigger icon */
+    font-size: 1.2rem;
   }
+
   #searchBtn span {
-    display: none; /* Hide text */
+    display: none;
   }
   
   /* --- Mobile Filters --- */
