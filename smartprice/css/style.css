@@ -498,51 +498,41 @@ body {
     font-size: 2rem;
   }
 
-  /* --- START: THE FINAL, CORRECTED MOBILE STYLES --- */
-
-  /* Make the entire search section a bit bigger */
-  .search-section {
-    padding: 1.5rem;
-  }
-
-  /* 1. The main search box container */
+  /* --- Styles for the mobile search bar --- */
   .search-box {
-    flex-direction: row !important; /* Use !important to force it to stay horizontal */
+    flex-direction: row !important; /* Forces it to be horizontal */
     align-items: center;
     border-radius: 50px;
     border: 2px solid #ddd;
-    padding: 5px; /* Add more padding for a bigger feel */
+    padding: 5px;
     background: white;
   }
 
-  /* 2. The text input field */
   #searchInput {
     background: transparent;
     border-radius: 0;
-    padding: 0.8rem 1.2rem; /* Increase padding to make it taller */
-    font-size: 16px; /* Larger font, also prevents iOS zoom */
-    border: none; /* Ensure no extra borders are interfering */
+    padding: 0.8rem 1.2rem;
+    font-size: 16px;
+    border: none;
   }
 
-  /* 3. The search button */
   #searchBtn {
     padding: 0;
-    width: 50px;   /* Increased size */
-    height: 50px;  /* Increased size */
+    width: 50px;   /* Bigger size */
+    height: 50px;  /* Bigger size */
     border-radius: 50%;
     background: var(--primary);
     color: white;
     justify-content: center;
     flex-shrink: 0;
-    border: none; /* Ensure no extra borders are interfering */
+    border: none;
   }
 
-  /* Make the icon inside the button bigger */
   #searchBtn .fa-search {
     font-size: 1.2rem;
   }
 
-  /* Hide the "Compare Prices" text */
+  /* Hides the "Compare Prices" text on mobile */
   #searchBtn span {
     display: none;
   }
@@ -550,10 +540,8 @@ body {
   #searchBtn:hover {
     background: var(--primary-dark);
   }
-  /* --- END: THE FINAL, CORRECTED MOBILE STYLES --- */
 
-
-  /* --- Other Mobile Styles --- */
+  /* --- Other mobile styles --- */
   .filters {
     flex-direction: column;
     align-items: flex-start;
